@@ -1,5 +1,10 @@
 en:
   theme_metadata:
-    description: ''
+    description: "Shows a Patron membership popup when non-Patrons click Reply or New Topic, with a link to become a TROYPOINT Patron."
     settings:
-      example_setting: A description of a setting.
+      exempt_groups: Groups whose members bypass the membership popup. Staff are always exempt.
+      categories: Categories where the membership popup applies. Leave empty to apply to all categories.
+      redirect_url: Destination of the membership button in the popup.
+      modal_title: Title of the membership popup.
+      modal_message: Message displayed in the membership popup.
+      modal_button_label: Text on the button linking to the membership page.

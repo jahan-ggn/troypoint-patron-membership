@@ -1,2 +1,25 @@
-example_setting:
-  default: true
+exempt_groups:
+  type: list
+  list_type: group
+  default: ""
+  resolve_group_membership: true
+
+categories:
+  type: list
+  list_type: category
+  default: ""
+
+redirect_url:
+  default: "https://troypointinsider.com/t/troypoint-patron-membership/148478"
+
+modal_title:
+  default: "Become a TROYPOINT Patron"
+  description: "Title of the membership popup."
+
+modal_message:
+  type: string
+  textarea: true
+  default: "Creating topics and posting replies is a Patron benefit. Become a TROYPOINT Patron to join the conversation!"
+
+modal_button_label:
+  default: "Become a Patron"
