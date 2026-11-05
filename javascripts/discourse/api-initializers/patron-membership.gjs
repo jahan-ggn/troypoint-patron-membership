@@ -1,3 +1,5 @@
+import { action } from "@ember/object";
+import { service } from "@ember/service";
 import { apiInitializer } from "discourse/lib/api";
 import PatronReplyButton from "../components/patron-reply-button.gjs";
 import PatronTopicReplyButton from "../components/patron-topic-reply-button.gjs";
@@ -8,6 +10,31 @@ export default apiInitializer((api) => {
   api.renderInOutlet(
     "topic-footer-main-buttons-before-create",
     PatronTopicReplyButton
+  );
+
+  api.modifyClass(
+    "controller:topic",
+    (Superclass) =>
+      class extends Superclass {
+        @service patronMembership;
+
+        @action
+        replyToPost(post) {
+          const topic = post?.topic || this.model;
+
+          if (
+            topic?.archetype === "regular" &&
+            !topic.closed &&
+            !topic.archived &&
+            !topic.deleted_at &&
+            this.patronMembership.showIfRequired(topic.category_id)
+          ) {
+            return;
+          }
+
+          return super.replyToPost(...arguments);
+        }
+      }
   );
 
   api.registerValueTransformer(
