@@ -1,5 +1,5 @@
 import Service, { service } from "@ember/service";
-import PatronMembershipModal from "../components/modal/patron-membership";
+import PatronMembershipModal from "../components/modal/patron-membership.gjs";
 
 export default class PatronMembershipService extends Service {
   @service currentUser;

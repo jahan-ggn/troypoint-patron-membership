@@ -14,7 +14,6 @@ redirect_url:
 
 modal_title:
   default: "Become a TROYPOINT Patron"
-  description: "Title of the membership popup."
 
 modal_message:
   type: string
